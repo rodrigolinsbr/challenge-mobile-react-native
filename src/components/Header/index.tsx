@@ -4,21 +4,21 @@ import Search from "../../components/Search";
 import Service from "../../service";
 import { Thumbnail } from "native-base";
 
-const Header = () => {
+const Header = (props) => {
+  
+  const  getSearchData = props.getSearchData.getSearchData
+  const renderSearch = () => {
+    return <Search data={{getSearchData}} />;
+  };
   return (
     <View style={styles.container}>
-      {/* <Image
-        style={styles.image}
-        source={require("../../assets/MarvelLogo.png")}
-      /> */}
-
       <Thumbnail
         style={styles.image}
         square
         source={require("../../assets/marvel-logo.jpg")}
       />
-
-      <Search />
+      {renderSearch()}
+      {/* <Search getDataHeroesName={{props.getDataHeroesName}} /> */}
       {/* <img src={marvelLogo}/> */}
     </View>
   );

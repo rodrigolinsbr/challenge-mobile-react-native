@@ -2,10 +2,11 @@ import React, { Component, Fragment, useState, useEffect } from "react";
 import { StyleSheet, Image, FlatList } from "react-native";
 
 import Modal from "../../components/Modal";
-import Service from "../../service";
+
+
 import {
   Container,
-  Header,
+  
   Content,
   List,
   ListItem,
@@ -78,14 +79,15 @@ const CardHero = (props) => {
   };
 
   const loadHeroes = () => {
-    if (!props.load.load) {
+
+    if (!props.load.load && !props.search) {
       console.log(props.limit.limit, props.offset.offset);
       props.renderLoad.renderLoad();
       // props.paginatorLimit.paginatorLimit(props.limit.limit + 20);
-      props.paginatorOffset.paginatorOffset(props.offset.offset + 40);
+      props.paginatorOffset.paginatorOffset(props.offset.offset + 45);
       props.getDataHeroes.getDataHeroes(
         props.limit.limit,
-        props.offset.offset + 20
+        props.offset.offset + 45
       );
     }
   };

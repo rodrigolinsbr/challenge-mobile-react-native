@@ -10,7 +10,7 @@ const api = axios.create({
 });
 
 class Service {
-  static getHeroes = async (limit, offset) => {
+  static getHeroes = async (limit=0, offset=45) => {
     let res = await axios.get(
       "http://gateway.marvel.com/v1/public/characters?ts=1611016199022&apikey=6929bbd137d95f6c0e9515db4f9c07c9&hash=03db90f0c9df8dc271483b56392a43be&limit=" +
         limit +
@@ -20,6 +20,17 @@ class Service {
 
     return res.data.data.results;
   };
+  static getHeroesName = async (name) => {
+    let res = await axios.get(
+      "http://gateway.marvel.com/v1/public/characters?ts=1611016199022&apikey=6929bbd137d95f6c0e9515db4f9c07c9&hash=03db90f0c9df8dc271483b56392a43be&nameStartsWith="+
+        name
+
+    );
+
+    return res.data.data.results;
+  };
+
+  
 }
 
 // const getHeroes = async ({ limit, offset }) => {
