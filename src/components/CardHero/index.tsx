@@ -19,6 +19,7 @@ import {
   View,
   Icon,
   Spinner,
+  Item,
 } from "native-base";
 
 const CardHero = (props) => {
@@ -27,78 +28,86 @@ const CardHero = (props) => {
   const [heroesData, setHeroesData] = useState([]);
 
   useEffect(() => {
-    console.log(props)
+    console.log(props);
     setHeroesData(props.heroes.heroes);
   }, []);
 
-  return (
-    <>
-      {
-        <Fragment>
-          <Modal
-            hero={modalData}
-            modalVisible={modalRender}
-            setModalRender={setModalRender}
-          />
+  const handleClick = (item) => {
+    setModalRender(true);
+    setModalData({
+      name: item.name,
+      description: item.description,
+      path: item.thumbnail.path + "." + item.thumbnail.extension,
+      favorite: item.favorite,
+    });
+  };
 
-          <Content>
-            <List>
-              {heroesData ? (
-                heroesData.map((person, name) => {
-                  const handleClick = (person) => {
-                    setModalRender(true);
-                    setModalData({
-                      name: person.name,
-                      description: person.description,
-                      path:
-                        person.thumbnail.path +
-                        "." +
-                        person.thumbnail.extension,
-                      favorite: person.favorite,
-                    });
-                  };
-                  return (
-                    <ListItem avatar onPress={() => handleClick(person)}>
-                      <Left>
-                        <Thumbnail
-                          source={{
-                            uri:
-                              person.thumbnail.path +
-                              "." +
-                              person.thumbnail.extension,
-                          }}
-                        />
-                      </Left>
-                      <Body>
-                        <Text>{person.name}</Text>
-                        <Text note>{person.description}</Text>
-                      </Body>
-                      <Right>
-                        {person.favorite ? (
-                          <Icon
-                            style={{
-                              fontSize: 20,
-                              paddingTop: 10,
-                              color: "red",
-                            }}
-                            active
-                            name="star"
-                          />
-                        ) : (
-                          <></>
-                        )}
-                      </Right>
-                    </ListItem>
-                  );
-                })
-              ) : (
-                <Text></Text>
-              )}
-            </List>
-          </Content>
-        </Fragment>
-      }
-    </>
+  const renderLocal = ({ item }) => {
+    return (
+      <>
+        <ListItem avatar onPress={() => handleClick(item)}>
+          <Left>
+            <Thumbnail
+              source={{
+                uri: item.thumbnail.path + "." + item.thumbnail.extension,
+              }}
+            />
+          </Left>
+          <Body>
+            <Text>{item.name}</Text>
+            <Text note>{item.description}</Text>
+          </Body>
+          <Right>
+            {item.favorite ? (
+              <Icon
+                style={{
+                  fontSize: 20,
+                  paddingTop: 10,
+                  color: "red",
+                }}
+                active
+                name="star"
+              />
+            ) : (
+              <></>
+            )}
+          </Right>
+        </ListItem>
+      </>
+    );
+  };
+
+  const loadHeroes = () => {
+    if (!props.load.load) {
+      console.log(props.limit.limit, props.offset.offset);
+      props.renderLoad.renderLoad();
+      // props.paginatorLimit.paginatorLimit(props.limit.limit + 20);
+      props.paginatorOffset.paginatorOffset(props.offset.offset + 40);
+      props.getDataHeroes.getDataHeroes(
+        props.limit.limit,
+        props.offset.offset + 20
+      );
+    }
+  };
+
+  return (
+    <Fragment>
+      <Modal
+        hero={modalData}
+        modalVisible={modalRender}
+        setModalRender={setModalRender}
+      />
+      <List>
+        <FlatList
+          ListHeaderComponent={<></>}
+          data={heroesData}
+          keyExtractor={(item) => item.name}
+          renderItem={renderLocal}
+          onEndReached={loadHeroes}
+          onEndReachedThreshold={0.1}
+        />
+      </List>
+    </Fragment>
   );
 };
 
@@ -111,7 +120,7 @@ const styles = StyleSheet.create({
     // height: 200,
   },
   image: {
-    width: "100%",
+    width: "80%",
     flexDirection: "row",
     flex: 1,
   },

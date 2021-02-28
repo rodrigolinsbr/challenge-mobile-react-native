@@ -1,14 +1,23 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { View, Linking, Text, StyleSheet, Image } from "react-native";
 import Search from "../../components/Search";
+import Service from "../../service";
+import { Thumbnail } from "native-base";
 
 const Header = () => {
   return (
     <View style={styles.container}>
-      <Image
+      {/* <Image
         style={styles.image}
         source={require("../../assets/MarvelLogo.png")}
+      /> */}
+
+      <Thumbnail
+        style={styles.image}
+        square
+        source={require("../../assets/marvel-logo.jpg")}
       />
+
       <Search />
       {/* <img src={marvelLogo}/> */}
     </View>
@@ -17,14 +26,15 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    // width: "100%",
     flexDirection: "column",
-    backgroundColor: "#eb2b26",
-    height: 250,
+    backgroundColor: "#ed2c21",
+    height: 200,
   },
   image: {
     width: "100%",
-    flexDirection: "row",
+
+    // flexDirection: "row",
     flex: 1,
   },
 });
