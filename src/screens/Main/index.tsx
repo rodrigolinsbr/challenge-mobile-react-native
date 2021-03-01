@@ -17,7 +17,7 @@ const Main = (props) => {
   }, []);
 
   async function getDataHeroes(limit, offset) {
-    setSearch(true)
+    
     let data = await Service.getHeroes(limit, offset);
 
     setHeroes(data);
@@ -31,7 +31,7 @@ const Main = (props) => {
         alert("Herói não encontrado!");
         getDataHeroes(limit, offset);
       } else {
-        
+        setSearch(true)
         setHeroes([]);
         setHeroes(data);
         setLoad(false);

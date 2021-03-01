@@ -20,6 +20,7 @@ import {
   Spinner,
   Item,
 } from "native-base";
+import Search from "../Search";
 
 const CardHero = (props) => {
   const [modalRender, setModalRender] = useState(false);
@@ -76,6 +77,7 @@ const CardHero = (props) => {
   };
 
   const loadHeroes = () => {
+    
     if (!props.load.load) {      
       props.renderLoad.renderLoad();
       props.paginatorOffset.paginatorOffset(props.offset.offset + 45);

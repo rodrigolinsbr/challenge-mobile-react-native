@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Image } from "react-native";
-import {
-  Container,
-  Header,
-  Item,
-  Input,
-  Icon,
-  Button,
-  Text,
-  Spinner,
-} from "native-base";
+import { Header, Item, Input, Button, Text, Spinner } from "native-base";
 import Service from "../../service";
 
 const Search = (props) => {
@@ -37,13 +28,15 @@ const Search = (props) => {
       <Header searchBar rounded style={styles.container}>
         <Item>
           <Input placeholder="Pesquisar" onChangeText={handleChange} />
-          {load ? (
-            <Spinner color={"red"} />
-          ) : (
-            <Button transparent onPress={getData}>
+          <Button style={styles.button} onPress={getData}>
+            {load ? (
+              <Text>
+                <Spinner color={"white"} />
+              </Text>
+            ) : (
               <Text>Buscar</Text>
-            </Button>
-          )}
+            )}
+          </Button>
         </Item>
       </Header>
     </>
@@ -53,6 +46,9 @@ const Search = (props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#eb2b26",
+  },
+  button: {
+    height: 40,
   },
 });
 
