@@ -3,10 +3,8 @@ import { StyleSheet, Image, FlatList } from "react-native";
 
 import Modal from "../../components/Modal";
 
-
 import {
   Container,
-  
   Content,
   List,
   ListItem,
@@ -29,7 +27,6 @@ const CardHero = (props) => {
   const [heroesData, setHeroesData] = useState([]);
 
   useEffect(() => {
-    console.log(props);
     setHeroesData(props.heroes.heroes);
   }, []);
 
@@ -79,15 +76,12 @@ const CardHero = (props) => {
   };
 
   const loadHeroes = () => {
-
-    if (!props.load.load && !props.search) {
-      console.log(props.limit.limit, props.offset.offset);
+    if (!props.load.load) {      
       props.renderLoad.renderLoad();
-      // props.paginatorLimit.paginatorLimit(props.limit.limit + 20);
       props.paginatorOffset.paginatorOffset(props.offset.offset + 45);
       props.getDataHeroes.getDataHeroes(
-        props.limit.limit,
-        props.offset.offset + 45
+      props.limit.limit,
+      props.offset.offset + 45
       );
     }
   };
@@ -116,10 +110,7 @@ const CardHero = (props) => {
 const styles = StyleSheet.create({
   card: {
     width: "50%",
-    flexDirection: "column",
-    // backgroundColor: "#eb2b26",
-    // marginHorizontal: 2,
-    // height: 200,
+    flexDirection: "column",    
   },
   image: {
     width: "80%",

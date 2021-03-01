@@ -16,7 +16,6 @@ const Main = (props) => {
   const [offset, setOffset] = useState(0);
   const [search, setSearch] = useState(false);
   useEffect(() => {
-    // code to run on component mount
     setLoad(true);
     getDataHeroes(limit, offset);
   }, []);
@@ -29,14 +28,20 @@ const Main = (props) => {
   }
 
   async function getSearchData(data) {
-    console.log(data)
-    if(data.lenght==0){
-      getDataHeroes(0,45)
+    setLoad(true);        
+    if (data) {
+      if (data.length == 0) {
+        alert("Herói não encontrado!");
+        getDataHeroes(limit, offset);
+      } else {
+        setHeroes([]);
+        setHeroes(data);
+        setLoad(false);
+      }
+    } else {
+      setLoad(true)      
+      getDataHeroes(limit, offset);
     }
-    setHeroes([]);
-    setLoad(true);
-    setHeroes(data);
-    setLoad(false);
   }
 
   const renderLoad = () => {
@@ -65,7 +70,7 @@ const Main = (props) => {
           limit={{ limit }}
           paginatorOffset={{ paginatorOffset }}
           offset={{ offset }}
-          search={{search}}
+          search={{ search }}
         />
       );
     }
@@ -79,13 +84,6 @@ const Main = (props) => {
     <>
       {renderHeader()}
       {renderCardHero()}
-
-      {/* <CardHero
-          heroes={{ heroes }}
-          getDataHeroes={{ getDataHeroes }}
-          renderLoad={{ renderLoad }}
-          load={{load}}
-        /> */}
     </>
   );
 };
