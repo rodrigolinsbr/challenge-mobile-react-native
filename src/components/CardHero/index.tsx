@@ -107,16 +107,6 @@ const CardHero = (props) => {
   );
 };
 
-const styles = StyleSheet.create({
-  card: {
-    width: "50%",
-    flexDirection: "column",    
-  },
-  image: {
-    width: "80%",
-    flexDirection: "row",
-    flex: 1,
-  },
-});
+
 
 export default CardHero;

@@ -19,7 +19,7 @@
 13-->[com.facebook.flipper:flipper:0.54.0] /root/.gradle/caches/transforms-2/files-2.1/1c7787ec82631e0394972c76bdabe608/flipper-0.54.0/AndroidManifest.xml:16:22-73
 14
 15    <application
-15-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:6:5-25:19
+15-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:6:5-27:19
 16        android:name="com.marvel.MainApplication"
 16-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:7:7-38
 17        android:allowBackup="false"
@@ -38,7 +38,7 @@
 24        android:usesCleartextTraffic="true" >
 24-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/debug/AndroidManifest.xml:7:18-53
 25        <activity
-25-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:13:7-23:18
+25-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:13:7-25:18
 26            android:name="com.marvel.MainActivity"
 26-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:14:9-37
 27            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
@@ -47,22 +47,24 @@
 28-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:15:9-41
 29            android:launchMode="singleTask"
 29-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:17:9-40
-30            android:windowSoftInputMode="adjustResize" >
-30-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:18:9-51
-31            <intent-filter>
-31-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:19:9-22:25
-32                <action android:name="android.intent.action.MAIN" />
-32-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:20:13-65
-32-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:20:21-62
-33
-34                <category android:name="android.intent.category.LAUNCHER" />
-34-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:21:13-73
-34-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:21:23-70
-35            </intent-filter>
-36        </activity>
-37        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-37-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:24:7-84
-37-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:24:17-81
-38    </application>
-39
-40</manifest>
+30            android:screenOrientation="portrait"
+30-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:19:9-45
+31            android:windowSoftInputMode="adjustResize" >
+31-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:18:9-51
+32            <intent-filter>
+32-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:21:9-24:25
+33                <action android:name="android.intent.action.MAIN" />
+33-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:22:13-65
+33-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:22:21-62
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:23:13-73
+35-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:23:23-70
+36            </intent-filter>
+37        </activity>
+38        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+38-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:26:7-84
+38-->/home/alex/Documents/Rodrigo/challenge-mobile-react-native/android/app/src/main/AndroidManifest.xml:26:17-81
+39    </application>
+40
+41</manifest>

@@ -1,13 +1,9 @@
 import React, { Component, useState, useEffect } from "react";
-import { Container, Header, Text } from "native-base";
-import { Col, Row, Grid } from "react-native-easy-grid";
 import CardHero from "../../components/CardHero";
-
 import Service from "../../service";
-
 import Headers from "../../components/Header";
 import { Spinner } from "native-base";
-import { parseJsonText } from "typescript";
+
 
 const Main = (props) => {
   const [heroes, setHeroes] = useState([]);
@@ -21,6 +17,7 @@ const Main = (props) => {
   }, []);
 
   async function getDataHeroes(limit, offset) {
+    setSearch(true)
     let data = await Service.getHeroes(limit, offset);
 
     setHeroes(data);
@@ -34,6 +31,7 @@ const Main = (props) => {
         alert("Herói não encontrado!");
         getDataHeroes(limit, offset);
       } else {
+        
         setHeroes([]);
         setHeroes(data);
         setLoad(false);
